@@ -8,12 +8,12 @@ Welcome to the Translation Management Service! This guide will walk you through 
 
 Ensure the following are installed on your system:
 
-- PHP >= 8.2
+- PHP 8.2+
 - Composer
 - Laravel CLI (optional but helpful)
-- MySQL
-- Node.js & NPM
+- MySQL 8.0+
 - Git
+- Redis (Optional for caching)
 
 ---
 
@@ -67,5 +67,34 @@ Test the export endpoint
     --header 'Accept: application/json'
 ```
 
-# Installation Dependencies
-composer install
+## Features
+
+- CRUD operations for translations
+- Multi-language support (en, fr, es, etc.)
+- Tagging system for contextual organization
+- Token-based authentication
+- Optimized for performance (<200ms response time)
+- JSON export for frontend applications
+- Supports 100k+ records
+- OpenAPI documentation
+
+## Design Choices
+
+### Architecture
+- **SOLID Principles**: Separated concerns with Repository-Service-Controller pattern
+- **PSR-12 Compliance**: Consistent coding standards
+- **Caching Layer**: Redis-backed for translation exports
+- **Optimized Database**: 
+  - Composite indexes for frequent queries
+  - Properly indexed pivot tables
+  - Efficient schema design
+
+### Performance Considerations
+- Chunked JSON responses for large datasets
+- Database query optimization
+- CDN-ready response headers
+- Eager loading relationships where needed
+
+### Security
+- Sanctum token authentication
+- Input validation
