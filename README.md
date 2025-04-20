@@ -25,6 +25,11 @@ Ensure the following are installed on your system:
 git clone https://github.com/AhsanJawaid/translation-management-service.git
 cd translation-management-service
 composer install
+```
+
+### 2. Setting up the Application
+
+```bash
 cp .env.example .env
 php artisan key:generate
 Create a database named translation_ms_db in your Database
@@ -34,6 +39,7 @@ php artisan translations:generate --count=1000 //(100000 for testing load)
 php artisan serve
 The server will start at http://127.0.0.1:8000
 ```
+
 
 ### 2. Testing the API
 
